@@ -35,4 +35,34 @@ target = -2
 if two_sum(arr, target):
     print("true")
 else:
-    print("false")            
+    print("false") 
+
+#better approach
+def binary_search(arr, right, target):#function to perform binary search
+    while left <= right:
+        mid = left + (right - left) // 2
+        
+        if arr[mid] == target:
+            return True
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return False
+
+#Function to check whether any pair exists whos sum is equal to the given value
+def two_sum(arr, target):
+    #sort array
+    arr.sort()
+    
+    #iterate through each element in the array
+    for i in range(len(arr)):
+        complete = target - arr[i]
+        
+        #use binary search to find the complement
+        if binary_search(arr, i + 1, len(arr) - 1 , complement):
+            return True
+    return False
+
+arr = [0, -1, 2, -3, 1]
+target = -2                              
