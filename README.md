@@ -16,6 +16,5 @@ Input: “AAA”
 Output: 1
 Explanation: The longest substring without repeating characters is “A”
 
-Input: “GEEKSFORGEEKS”
-Output: 7 
-Explanation: The longest substrings without repeating characters are “EKSFORG” and “KSFORGE”, with lengths of 7.
+Input: “DATASTRUCTURES”
+Output: 76
