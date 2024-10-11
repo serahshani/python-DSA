@@ -32,5 +32,36 @@ def longestUniqueSubstr(s):
 
 if __name__ == "__main__":
     s = "ABCBC"
-    print(longestUniqueSubstr(s))        
+    print(longestUniqueSubstr(s))  
+    
+#better approach
+def longestUniqueSubstr(s):
+#if string length is 0 return 0
+    if len(s) == 0:
+        return 0
+    #if string length is 1 return 1
+    if len(s) == 1:
+        return 1
+    #if string length is more than 1
+    max_length = 0
+    visited = [False] * 256
+    
+    #right and left pointers of sliding window
+    left = 0
+    right = 0
+    while right < len(s):
+        #if the character is repeated, move the left pointer to the right and mark visited as false until the repeating character is no longer part of the current window
+        while visited[ord(s[right])]:
+            visited[ord(s[left])] = False
+            left += 1
+        #if the character is not repeated, mark visited as true and move the right pointer to the right
+        visited[ord(s[right])] = True
+        
+        #update the max length of the substring
+        max_length = max(max_length, right - left + 1)
+        right += 1
+    return maxLength
+if __name__ == "__main__":
+    s = "ABCBC"
+    print(longestUniqueSubstr(s))
         
